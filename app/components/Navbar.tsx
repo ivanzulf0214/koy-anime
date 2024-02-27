@@ -14,11 +14,11 @@ const Navbar = () => {
 
     return (
         <nav className="bg-gray-800 py-4">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto max-w-7xl px-4">
                 <div className="flex items-center justify-between">
                     <Link href={`/`} className="text-white font-bold text-2xl">KoyAnime</Link>
                     <div className="md:hidden">
-                        <button onClick={toggleMenu} className="bg-gray-700 px-3 py-2 rounded-md ">
+                        <button onClick={toggleMenu} className="bg-gray-700 px-3 py-2 rounded-md" aria-label='Toggle menu'>
                             {isOpen ? (
                                 <FaX className='text-white' />
                             ) : (
@@ -36,7 +36,6 @@ const Navbar = () => {
                     </ul>
                 </div>
             </div>
-            {/* Mobile Menu */}
             <div className={`${isOpen ? 'block' : 'hidden'} md:hidden fixed p-5 top-[64px] right-0 h-full w-full bg-gray-800 z-50`}>
                 <ul className="flex flex-col pt-4 gap-8">
                     <li className='text-white flex items-center gap-4'>

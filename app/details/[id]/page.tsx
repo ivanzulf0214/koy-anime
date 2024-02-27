@@ -3,7 +3,6 @@ import AnimeData from "@/interfaces/Anime"
 import BaseResponse from "@/interfaces/BaseResponse"
 import { FaStar } from 'react-icons/fa'
 import Episode from '@/interfaces/Episode'
-import Link from 'next/link'
 import moment from 'moment'
 
 type Props = {
