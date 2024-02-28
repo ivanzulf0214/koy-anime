@@ -39,12 +39,12 @@ const Navbar = () => {
             <div className={`${isOpen ? 'block' : 'hidden'} md:hidden fixed p-5 top-[64px] right-0 h-full w-full bg-gray-800 z-50`}>
                 <ul className="flex flex-col pt-4 gap-8">
                     <li className='text-white flex items-center gap-4'>
-                        <FaStar />
-                        <Link href={`/`}>Top Anime</Link>
-                    </li>
-                    <li className='text-white flex items-center gap-4'>
                         <FaSearch />
                         <Link href={`#`}>Browse</Link>
+                    </li>
+                    <li className='text-white flex items-center gap-4'>
+                        <FaStar />
+                        <Link href={`/`}>Top Anime</Link>
                     </li>
                 </ul>
             </div>

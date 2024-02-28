@@ -1,6 +1,6 @@
 export default interface BaseResponse<T> {
     data: T
-    pagination: Pagination | null
+    pagination: Pagination
 }
 
 export interface Pagination {

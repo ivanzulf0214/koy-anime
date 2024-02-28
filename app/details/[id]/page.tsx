@@ -53,7 +53,7 @@ const AnimeDetailPage = async ({ params: { id } }: Props) => {
     return (
         <div className='container mx-auto flex flex-col px-3 py-5 lg:mt-5 lg:p-0'>
             <div className="flex flex-col lg:flex-row text-slate-600 mb-5">
-                <div className="xs:flex-grow lg:basis-3/12 flex flex-col mb-2">
+                <div className="xs:flex-grow lg:basis-4/12 flex flex-col mb-2">
                     <Image src={anime.images.webp.large_image_url} 
                         width={500} 
                         height={1000} 
@@ -61,7 +61,7 @@ const AnimeDetailPage = async ({ params: { id } }: Props) => {
                         title={anime.title}
                         className='w-full h-[auto] max-h-[500px] object-cover rounded-lg'></Image>
                 </div>
-                <div className="basis-5/12 lg:pl-4 lg:mx-10">
+                <div className="basis-8/12 lg:pl-4 lg:mx-10">
                     <div className='flex flex-col items-center lg:items-start mb-5'>
                         <h1 className="text-2xl lg:text-3xl font-bold mb-3">{anime.title}</h1>
                         <div className='flex items-center gap-4'>
