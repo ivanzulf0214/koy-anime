@@ -1,5 +1,6 @@
 "use client"
 
+import Link from 'next/link';
 import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { FaBars, FaStar, FaX } from 'react-icons/fa6';
@@ -15,7 +16,7 @@ const Navbar = () => {
         <nav className="bg-gray-800 py-4">
             <div className="container mx-auto max-w-7xl px-4">
                 <div className="flex items-center justify-between">
-                    <a href={`/`} className="text-white font-bold text-2xl">KoyAnime</a>
+                    <Link href={`/`} className="text-white font-bold text-2xl">KoyAnime</Link>
                     <div className="md:hidden">
                         <button onClick={toggleMenu} className="bg-gray-700 px-3 py-2 rounded-md" aria-label='Toggle menu'>
                             {isOpen ? (
@@ -27,10 +28,10 @@ const Navbar = () => {
                     </div>
                     <ul className='hidden md:flex space-x-10 text-white'>
                         <li>
-                            <a href={`/`} className='hover:text-slate-300'>Top Anime</a>
+                            <Link href={`/`} className='hover:text-slate-300'>Top Anime</Link>
                         </li>
                         <li>
-                            <a href={`#`} className='hover:text-slate-300'>Browse</a>
+                            <Link href={`#`} className='hover:text-slate-300'>Browse</Link>
                         </li>
                     </ul>
                 </div>
@@ -39,11 +40,11 @@ const Navbar = () => {
                 <ul className="flex flex-col pt-4 gap-8">
                     <li className='text-white flex items-center gap-4'>
                         <FaSearch />
-                        <a href={`#`}>Browse</a>
+                        <Link href={`#`}>Browse</Link>
                     </li>
                     <li className='text-white flex items-center gap-4'>
                         <FaStar />
-                        <a href={`/`}>Top Anime</a>
+                        <Link href={`/`}>Top Anime</Link>
                     </li>
                 </ul>
             </div>

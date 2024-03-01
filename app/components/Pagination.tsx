@@ -15,7 +15,7 @@ const Pagination = ({ pageCount }: Props) => {
     }
 
     return (
-        <ReactPaginate 
+        <ReactPaginate
             breakLabel="..."
             nextLabel=">"
             previousLabel="<"
