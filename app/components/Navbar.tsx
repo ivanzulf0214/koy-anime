@@ -1,6 +1,5 @@
 "use client"
 
-import Link from 'next/link';
 import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { FaBars, FaStar, FaX } from 'react-icons/fa6';
@@ -16,7 +15,7 @@ const Navbar = () => {
         <nav className="bg-gray-800 py-4">
             <div className="container mx-auto max-w-7xl px-4">
                 <div className="flex items-center justify-between">
-                    <Link href={`/`} className="text-white font-bold text-2xl">KoyAnime</Link>
+                    <a href={`/`} className="text-white font-bold text-2xl">KoyAnime</a>
                     <div className="md:hidden">
                         <button onClick={toggleMenu} className="bg-gray-700 px-3 py-2 rounded-md" aria-label='Toggle menu'>
                             {isOpen ? (
@@ -28,10 +27,10 @@ const Navbar = () => {
                     </div>
                     <ul className='hidden md:flex space-x-10 text-white'>
                         <li>
-                            <Link href={`/`} className='hover:text-slate-300'>Top Anime</Link>
+                            <a href={`/`} className='hover:text-slate-300'>Top Anime</a>
                         </li>
                         <li>
-                            <Link href={`#`} className='hover:text-slate-300'>Browse</Link>
+                            <a href={`#`} className='hover:text-slate-300'>Browse</a>
                         </li>
                     </ul>
                 </div>
@@ -40,11 +39,11 @@ const Navbar = () => {
                 <ul className="flex flex-col pt-4 gap-8">
                     <li className='text-white flex items-center gap-4'>
                         <FaSearch />
-                        <Link href={`#`}>Browse</Link>
+                        <a href={`#`}>Browse</a>
                     </li>
                     <li className='text-white flex items-center gap-4'>
                         <FaStar />
-                        <Link href={`/`}>Top Anime</Link>
+                        <a href={`/`}>Top Anime</a>
                     </li>
                 </ul>
             </div>

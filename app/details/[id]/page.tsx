@@ -4,6 +4,7 @@ import BaseResponse from "@/interfaces/BaseResponse"
 import { FaStar } from 'react-icons/fa'
 import Episode from '@/interfaces/Episode'
 import moment from 'moment'
+import CharacterResponse, { CharacterData } from '@/interfaces/Character'
 
 type Props = {
     params: {
@@ -19,6 +20,10 @@ const AnimeDetailPage = async ({ params: { id } }: Props) => {
     const episodeByAnimeId = await fetch(`${process.env.API_BASE_URL}/anime/${id}/episodes`)
     const episodeResponse: BaseResponse<Episode[]> = await episodeByAnimeId.json()
     const episodes: Episode[] = episodeResponse.data
+
+    const characterByAnimeId = await fetch(`${process.env.API_BASE_URL}/anime/${id}/characters`)
+    const characterResponse: CharacterResponse = await characterByAnimeId.json()
+    const characters: CharacterData[] = characterResponse.data
 
     const isAiring = anime.airing ? "bg-green-600" : "bg-red-600"
 
@@ -54,12 +59,12 @@ const AnimeDetailPage = async ({ params: { id } }: Props) => {
         <div className='container mx-auto flex flex-col px-3 py-5 lg:mt-5 lg:p-0'>
             <div className="flex flex-col lg:flex-row text-slate-600 mb-5">
                 <div className="xs:flex-grow lg:basis-4/12 flex flex-col mb-2">
-                    <Image src={anime.images.webp.large_image_url} 
-                        width={500} 
-                        height={1000} 
-                        alt={anime.title} 
+                    <Image src={anime.images.webp.large_image_url}
+                        width={500}
+                        height={1000}
+                        alt={anime.title}
                         title={anime.title}
-                        className='w-full h-[auto] max-h-[500px] object-cover rounded-lg'></Image>
+                        className='w-full h-[auto] max-h-[550px] object-cover rounded-lg'></Image>
                 </div>
                 <div className="basis-8/12 lg:pl-4 lg:mx-10">
                     <div className='flex flex-col items-center lg:items-start mb-5'>
@@ -120,6 +125,21 @@ const AnimeDetailPage = async ({ params: { id } }: Props) => {
             <div className='flex flex-col mb-5'>
                 <h2 className='text-xl text-slate-700 font-bold mb-3'>Synopsys</h2>
                 <p className='text-sm text-slate-500'>{anime.synopsis}</p>
+            </div>
+            <div className='flex flex-col mb-5'>
+                <h2 className='text-xl text-slate-700 font-bold mb-3'>Characters</h2>
+                <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3'>
+                    {
+                        characters.sort((a, b) => b.favorites - a.favorites).map((character, index) => {
+                            return (
+                                <div className='flex flex-col items-center gap-2 mb-4' key={index}>
+                                    <Image src={character.character.images.webp.image_url} width={90} height={160} alt="Character" className='w-full h-auto max-h-[250px] object-cover rounded-lg bg-slate-200 p-1'></Image>
+                                    <span className='font-bold text-md md:text-xs text-center'>{character.character.name}</span>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </div>
             {
                 episodes.length == 0 ? "" :
